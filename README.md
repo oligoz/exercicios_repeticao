@@ -64,9 +64,10 @@ solicitou de cada entrevistado as informações a seguir:
 &emsp;b) Marcílio Dias  
 &emsp;c) Outros clubes
 	- Qual o valor de seu salário?
-	- Qual o local de nascimento?  
+	- Qual o local de nascimento?
 &emsp;a) Florianópolis  
 &emsp;b) Outras cidades  
+
 Construa um programa que, considerando as fornecidas, determine e 
 mostre:  
 &emsp;a) Número de torcedores por clube;  
@@ -85,7 +86,8 @@ concurso, escreva um programa que forneça:
 prova de Conhecimentos Geral maior que 6,0;  
 &emsp;d) O número de candidatos aprovados que obtiveram nota em Matemática 
 acima de 5,0.  
-Obs.: Considere que é aprovado no concurso o candidato que tiver média 
+> [!IMPORTANT]
+> Considere que é aprovado no concurso o candidato que tiver média 
 acima de 4.0 e nenhuma nota abaixo de 2.0.
 
 12. Considere para cada aluno de uma universidade, as seguintes
@@ -97,5 +99,5 @@ alimentação;
 &emsp;b) O gasto médio com aluguel;  
 &emsp;c) Para cada aluno, a proporção de gastos com alimentação (P1) e a 
 proporção de gastos com vestimenta (P2) em relação à sua renda.
-	- P1 = Gastos com alimentação / Renda familiar
-	- P2 = Gastos com vestimenta / Renda familiar
+		- P1 = Gastos com alimentação / Renda familiar
+		- P2 = Gastos com vestimenta / Renda familiar
