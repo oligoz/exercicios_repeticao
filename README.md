@@ -2,7 +2,7 @@
 
 1. Escreva um programa que, para um grupo de cinqüenta valores inteiros, 
 determine:
-	a) A soma dos valores positivos;  
+&emsp;a) A soma dos valores positivos;  
 	b) A quantidade de valores negativos.
 
 2. Uma loja oferece para os seus clientes um determinado desconto de 
