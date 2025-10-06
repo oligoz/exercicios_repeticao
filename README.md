@@ -2,7 +2,7 @@
 
 1. Escreva um programa que, para um grupo de cinqüenta valores inteiros, 
 determine:
-	<ol type="a">
+	<ol type="A">
 		<li> A soma dos valores positivos;</li>
 		<li> A quantidade de valores negativos.</li>
 	</ol>
