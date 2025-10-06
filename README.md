@@ -99,5 +99,5 @@ alimentação;
 &emsp;b) O gasto médio com aluguel;  
 &emsp;c) Para cada aluno, a proporção de gastos com alimentação (P1) e a 
 proporção de gastos com vestimenta (P2) em relação à sua renda.  
-	&emsp;- P1 = Gastos com alimentação / Renda familiar
-	&emsp;- P2 = Gastos com vestimenta / Renda familiar
+	&emsp;&emsp;- P1 = Gastos com alimentação / Renda familiar  
+	&emsp;&emsp;- P2 = Gastos com vestimenta / Renda familiar
