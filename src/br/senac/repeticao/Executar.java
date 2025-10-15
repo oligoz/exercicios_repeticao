@@ -106,6 +106,35 @@ public class Executar {
         }
         System.out.println("Resultado da soma: "+ soma);
     }
+    
+    static void Ex11(int n){
+        Random random = new Random();
+        float[][] notas = new float[n][4];
+        float notasPortugues = 0f;
+        int aprov1=0;
+        int aprov2=0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < 3; j++) {
+                notas[i][j] = random.nextFloat()*10;
+            }
+            notas[i][3] = (notas[i][0] + notas[i][1] + notas[i][2])/3;
+            if (notas[i][3]>4.5 && notas[i][2]>6){
+                aprov1++;
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            notasPortugues+=notas[i][0];
+            if (notas[i][0] > 2 && notas[i][1] > 2 && notas[i][2] > 2 && notas[i][3] > 4 ) {                
+                System.out.println("Aluno "+(i+1)+" aprovado.");
+                if (notas[i][1]>5){
+                    aprov2++;
+                }
+            }
+        }
+        System.out.println("Media portugues: "+notasPortugues/n);
+        System.out.println(aprov1);
+        System.out.println(aprov2);
+    }
 
     public static void main(String[] args) {
         // TODO code application logic here
@@ -113,7 +142,8 @@ public class Executar {
 //        Ex2();
 //        Ex3();
 //        Ex4();
-        Ex5(5);
+//        Ex5(5);
+        Ex11(10);
     }
 
 }
