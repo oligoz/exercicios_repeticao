@@ -64,7 +64,7 @@ solicitou de cada entrevistado as informações a seguir:
 &emsp;b) Marcílio Dias  
 &emsp;c) Outros clubes
 	- Qual o valor de seu salário?
-	- Qual o local de nascimento?
+	- Qual o local de nascimento?  
 &emsp;a) Florianópolis  
 &emsp;b) Outras cidades  
 

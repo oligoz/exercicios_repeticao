@@ -1,5 +1,9 @@
 package br.senac.repeticao;
 
+import br.senac.repeticao.exercicio10.Cidade;
+import br.senac.repeticao.exercicio10.Clube;
+import br.senac.repeticao.exercicio10.Entrevistado;
+import br.senac.repeticao.exercicio12.Universitario;
 import br.senac.repeticao.exercicio6.Aluno;
 import br.senac.repeticao.exercicio7.Cliente;
 import br.senac.repeticao.exercicio7.Hotel;
@@ -111,35 +115,6 @@ public class Executar {
         System.out.println("Resultado da soma: " + soma);
     }
 
-    static void Ex11(int n) {
-        Random random = new Random();
-        float[][] notas = new float[n][4];
-        float notasPortugues = 0f;
-        int aprov1 = 0;
-        int aprov2 = 0;
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < 3; j++) {
-                notas[i][j] = random.nextFloat() * 10;
-            }
-            notas[i][3] = (notas[i][0] + notas[i][1] + notas[i][2]) / 3;
-            if (notas[i][3] > 4.5 && notas[i][2] > 6) {
-                aprov1++;
-            }
-        }
-        for (int i = 0; i < n; i++) {
-            notasPortugues += notas[i][0];
-            if (notas[i][0] > 2 && notas[i][1] > 2 && notas[i][2] > 2 && notas[i][3] > 4) {
-                System.out.println("Aluno " + (i + 1) + " aprovado.");
-                if (notas[i][1] > 5) {
-                    aprov2++;
-                }
-            }
-        }
-        System.out.println("Media portugues: " + notasPortugues / n);
-        System.out.println(aprov1);
-        System.out.println(aprov2);
-    }
-
     static void Ex6Classe() {
         Aluno[] alunos = new Aluno[45];
         float idadeMedia = 0;
@@ -171,7 +146,7 @@ public class Executar {
         System.out.println("Altura media dos alunoscom mais de 20 anos: " + alturaMedia);
     }
 
-    public static void Ex7Classe() {
+    static void Ex7Classe() {
         Scanner scanner = new Scanner(System.in);
         int numClientes;
         Hotel hotel = new Hotel();
@@ -204,7 +179,7 @@ public class Executar {
 
     }
 
-    public static void Ex8Classe() {
+    static void Ex8Classe() {
         Random random = new Random();
         int numPraias = random.nextInt(1, 1000);
         List<Praia> praias = new ArrayList<>();
@@ -227,7 +202,7 @@ public class Executar {
                 praiasNaoAsfaltadas++;
                 mediaVeranistas += praia.getMediaVeranistas();
             }
-            if (praia.getMediaVeranistas()<1000){
+            if (praia.getMediaVeranistas() < 1000) {
                 praiasVazias++;
             }
         }
@@ -254,6 +229,122 @@ public class Executar {
         }
     }
 
+    static void Ex9() {
+        Scanner scanner = new Scanner(System.in);
+        int potencia;
+        int potenciaAtual = 1;
+        int soma = 0;
+        System.out.println("Qual a potencia final:");
+        potencia = scanner.nextInt();
+        for (int i = 0; i < potencia; i++) {
+            potenciaAtual *= 3;
+            soma += potenciaAtual;
+        }
+        System.out.println("Soma de todos os termos: " + soma);
+    }
+    
+    static void Ex10Classe(){
+        Random random = new Random();
+        int numEntrevistados = random.nextInt(1, 1000);
+        Clube figueirense = new Clube("Figueirense");
+        Clube marcilioDias = new Clube("Marcilio Dias");
+        Clube outrosClubes = new Clube("Outros Clubes");
+        Clube[] clubes = {figueirense, marcilioDias, outrosClubes};
+        List<Entrevistado> entrevistados = new ArrayList<>();
+        float mediaSalarial = 0;
+        int letraC = 0;
+        int letraD = 0;
+        for (int i = 0; i < numEntrevistados; i++) {
+            Entrevistado entrevistado = new Entrevistado();
+            entrevistado.setNome("Entrevistado "+(i+1));
+            entrevistado.setSalario(random.nextFloat(1300, 20000));
+            entrevistado.setClube(clubes[random.nextInt(3)]);
+            entrevistado.setLocalNascimento((random.nextInt(2)%2==0)?Cidade.FLORIANOPOLIS:Cidade.OUTRASCIDADES);
+            entrevistados.add(entrevistado);
+        }
+        for (Clube time : clubes){
+            System.out.println(time.getNome()+" tem "+time.getNumeroTorcedores()+" torcedores.");
+        }
+        for (Entrevistado entrevistado : entrevistados){
+            if (entrevistado.getClube()==figueirense){
+                mediaSalarial+=entrevistado.getSalario();
+                if (entrevistado.getLocalNascimento()==Cidade.OUTRASCIDADES){
+                    letraD++;
+                }
+            } else if (entrevistado.getClube()==marcilioDias && entrevistado.getLocalNascimento()==Cidade.FLORIANOPOLIS){
+                letraC++;
+            }
+        }
+        mediaSalarial/=figueirense.getNumeroTorcedores();
+        System.out.printf("Media salarial dos toredores do Figueirense: R$%.2f\n",mediaSalarial);
+        System.out.println("Numero de pessoas nascidas em Florianopolis e que torcem pelo Marcilio Dias: "+letraC);
+        System.out.println("Numero de pessoas nascidas em outras cidades e que torcem pelo Figueirense: "+letraD);
+    }
+    
+    static void Ex11(int n) {
+        Random random = new Random();
+        float[][] notas = new float[n][4];
+        float notasPortugues = 0f;
+        int aprov1 = 0;
+        int aprov2 = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < 3; j++) {
+                notas[i][j] = random.nextFloat() * 10;
+            }
+            notas[i][3] = (notas[i][0] + notas[i][1] + notas[i][2]) / 3;
+            if (notas[i][3] > 4.5 && notas[i][2] > 6) {
+                aprov1++;
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            notasPortugues += notas[i][0];
+            if (notas[i][0] > 2 && notas[i][1] > 2 && notas[i][2] > 2 && notas[i][3] > 4) {
+                System.out.println("Aluno " + (i + 1) + " aprovado.");
+                if (notas[i][1] > 5) {
+                    aprov2++;
+                }
+            }
+        }
+        System.out.println("Media portugues: " + notasPortugues / n);
+        System.out.println(aprov1);
+        System.out.println(aprov2);
+    }
+    
+    static void Ex12Classe(){
+        Random random = new Random();
+        List<Universitario> alunos = new ArrayList<>();
+        float letraA = 0;
+        int numAlunosMais300Alimentacao = 0;
+        float letraB = 0;
+        int numAlunos = random.nextInt(1, 20);
+        for (int i = 0; i < numAlunos; i++) {
+            Universitario aluno = new Universitario();
+            aluno.setRendaFamiliar(random.nextFloat(1300, 50000));
+            aluno.setGastoAluguel(random.nextFloat(0, aluno.getRendaFamiliar()*2/3));
+            aluno.setGastoVestimenta(random.nextFloat(0, aluno.getRendaFamiliar()
+                                                                            -aluno.getGastoAluguel()));
+            aluno.setGastoAlimentacao(random.nextFloat(0, aluno.getRendaFamiliar()
+                                                                                -aluno.getGastoAluguel()
+                                                                                -aluno.getGastoVestimenta()));
+            alunos.add(aluno);
+        }
+        for (Universitario aluno : alunos){
+            if (aluno.getGastoAlimentacao() > 300f){
+                letraA+=aluno.getRendaFamiliar();
+                numAlunosMais300Alimentacao++;
+            }
+            letraB+=aluno.getGastoAluguel();
+        }
+        letraA/=numAlunosMais300Alimentacao;
+        letraB/=alunos.size();
+        System.out.printf("Renda media familiar dos alunos que gastam mais de R$300 com alimentacao: R$%.2f\n", letraA);
+        System.out.printf("O gasto media com aluguel: R$%.2f\n",letraB);
+        for (Universitario aluno : alunos){
+            System.out.printf("{P1=%.2f%%; P2=%.2f%%}\n", (aluno.getGastoAlimentacao()/aluno.getRendaFamiliar())*100, 
+                                                                (aluno.getGastoVestimenta()/aluno.getRendaFamiliar())*100);
+        }
+    }
+
     public static void main(String[] args) {
         // TODO code application logic here
 //        Ex1();
@@ -263,8 +354,11 @@ public class Executar {
 //        Ex5(5);
 //        Ex6Classe();
 //        Ex7Classe();
-        Ex8Classe();
+//        Ex8Classe();
+//        Ex9();
+//        Ex10Classe();
 //        Ex11(10);
+        Ex12Classe();
     }
 
 }
