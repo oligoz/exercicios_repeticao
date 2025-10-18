@@ -338,9 +338,9 @@ public class Executar {
         letraA /= numAlunosMais300Alimentacao;
         letraB /= alunos.size();
         System.out.printf("Renda media familiar dos alunos que gastam mais de R$300 com alimentacao: R$%.2f\n", letraA);
-        System.out.printf("O gasto media com aluguel: R$%.2f\n", letraB);
+        System.out.printf("O gasto media com aluguel: R$%.2f%n", letraB);
         for (Universitario aluno : alunos) {
-            System.out.printf("{P1=%.2f%%; P2=%.2f%%}\n", (aluno.getGastoAlimentacao() / aluno.getRendaFamiliar()) * 100,
+            System.out.printf("{P1=%05.2f%%; P2=%05.2f%%}%n", (aluno.getGastoAlimentacao() / aluno.getRendaFamiliar()) * 100,
                     (aluno.getGastoVestimenta() / aluno.getRendaFamiliar()) * 100);
         }
     }
