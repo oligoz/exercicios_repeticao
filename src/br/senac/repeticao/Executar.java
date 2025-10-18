@@ -242,8 +242,8 @@ public class Executar {
         }
         System.out.println("Soma de todos os termos: " + soma);
     }
-    
-    static void Ex10Classe(){
+
+    static void Ex10Classe() {
         Random random = new Random();
         int numEntrevistados = random.nextInt(1, 1000);
         Clube figueirense = new Clube("Figueirense");
@@ -256,31 +256,31 @@ public class Executar {
         int letraD = 0;
         for (int i = 0; i < numEntrevistados; i++) {
             Entrevistado entrevistado = new Entrevistado();
-            entrevistado.setNome("Entrevistado "+(i+1));
+            entrevistado.setNome("Entrevistado " + (i + 1));
             entrevistado.setSalario(random.nextFloat(1300, 20000));
             entrevistado.setClube(clubes[random.nextInt(3)]);
-            entrevistado.setLocalNascimento((random.nextInt(2)%2==0)?Cidade.FLORIANOPOLIS:Cidade.OUTRASCIDADES);
+            entrevistado.setLocalNascimento((random.nextInt(2) % 2 == 0) ? Cidade.FLORIANOPOLIS : Cidade.OUTRASCIDADES);
             entrevistados.add(entrevistado);
         }
-        for (Clube time : clubes){
-            System.out.println(time.getNome()+" tem "+time.getNumeroTorcedores()+" torcedores.");
+        for (Clube time : clubes) {
+            System.out.println(time.getNome() + " tem " + time.getNumeroTorcedores() + " torcedores.");
         }
-        for (Entrevistado entrevistado : entrevistados){
-            if (entrevistado.getClube()==figueirense){
-                mediaSalarial+=entrevistado.getSalario();
-                if (entrevistado.getLocalNascimento()==Cidade.OUTRASCIDADES){
+        for (Entrevistado entrevistado : entrevistados) {
+            if (entrevistado.getClube() == figueirense) {
+                mediaSalarial += entrevistado.getSalario();
+                if (entrevistado.getLocalNascimento() == Cidade.OUTRASCIDADES) {
                     letraD++;
                 }
-            } else if (entrevistado.getClube()==marcilioDias && entrevistado.getLocalNascimento()==Cidade.FLORIANOPOLIS){
+            } else if (entrevistado.getClube() == marcilioDias && entrevistado.getLocalNascimento() == Cidade.FLORIANOPOLIS) {
                 letraC++;
             }
         }
-        mediaSalarial/=figueirense.getNumeroTorcedores();
-        System.out.printf("Media salarial dos toredores do Figueirense: R$%.2f\n",mediaSalarial);
-        System.out.println("Numero de pessoas nascidas em Florianopolis e que torcem pelo Marcilio Dias: "+letraC);
-        System.out.println("Numero de pessoas nascidas em outras cidades e que torcem pelo Figueirense: "+letraD);
+        mediaSalarial /= figueirense.getNumeroTorcedores();
+        System.out.printf("Media salarial dos toredores do Figueirense: R$%.2f\n", mediaSalarial);
+        System.out.println("Numero de pessoas nascidas em Florianopolis e que torcem pelo Marcilio Dias: " + letraC);
+        System.out.println("Numero de pessoas nascidas em outras cidades e que torcem pelo Figueirense: " + letraD);
     }
-    
+
     static void Ex11(int n) {
         Random random = new Random();
         float[][] notas = new float[n][4];
@@ -309,8 +309,8 @@ public class Executar {
         System.out.println(aprov1);
         System.out.println(aprov2);
     }
-    
-    static void Ex12Classe(){
+
+    static void Ex12Classe() {
         Random random = new Random();
         List<Universitario> alunos = new ArrayList<>();
         float letraA = 0;
@@ -320,28 +320,28 @@ public class Executar {
         for (int i = 0; i < numAlunos; i++) {
             Universitario aluno = new Universitario();
             aluno.setRendaFamiliar(random.nextFloat(1300, 50000));
-            aluno.setGastoAluguel(random.nextFloat(0, aluno.getRendaFamiliar()*2/3));
+            aluno.setGastoAluguel(random.nextFloat(0, aluno.getRendaFamiliar() * 2 / 3));
             aluno.setGastoVestimenta(random.nextFloat(0, aluno.getRendaFamiliar()
-                                                                            -aluno.getGastoAluguel()));
+                    - aluno.getGastoAluguel()));
             aluno.setGastoAlimentacao(random.nextFloat(0, aluno.getRendaFamiliar()
-                                                                                -aluno.getGastoAluguel()
-                                                                                -aluno.getGastoVestimenta()));
+                    - aluno.getGastoAluguel()
+                    - aluno.getGastoVestimenta()));
             alunos.add(aluno);
         }
-        for (Universitario aluno : alunos){
-            if (aluno.getGastoAlimentacao() > 300f){
-                letraA+=aluno.getRendaFamiliar();
+        for (Universitario aluno : alunos) {
+            if (aluno.getGastoAlimentacao() > 300f) {
+                letraA += aluno.getRendaFamiliar();
                 numAlunosMais300Alimentacao++;
             }
-            letraB+=aluno.getGastoAluguel();
+            letraB += aluno.getGastoAluguel();
         }
-        letraA/=numAlunosMais300Alimentacao;
-        letraB/=alunos.size();
+        letraA /= numAlunosMais300Alimentacao;
+        letraB /= alunos.size();
         System.out.printf("Renda media familiar dos alunos que gastam mais de R$300 com alimentacao: R$%.2f\n", letraA);
-        System.out.printf("O gasto media com aluguel: R$%.2f\n",letraB);
-        for (Universitario aluno : alunos){
-            System.out.printf("{P1=%.2f%%; P2=%.2f%%}\n", (aluno.getGastoAlimentacao()/aluno.getRendaFamiliar())*100, 
-                                                                (aluno.getGastoVestimenta()/aluno.getRendaFamiliar())*100);
+        System.out.printf("O gasto media com aluguel: R$%.2f\n", letraB);
+        for (Universitario aluno : alunos) {
+            System.out.printf("{P1=%.2f%%; P2=%.2f%%}\n", (aluno.getGastoAlimentacao() / aluno.getRendaFamiliar()) * 100,
+                    (aluno.getGastoVestimenta() / aluno.getRendaFamiliar()) * 100);
         }
     }
 
